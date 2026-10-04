@@ -3,8 +3,11 @@ import axios from 'axios';
 import store from '../store';
 import { logout } from '../store/authSlice';
 
-// Global config: Connect straight to backend, bypassing Vite's proxy resolving 404/400 errors.
-axios.defaults.baseURL = (import.meta.env.VITE_API_URL || 'http://localhost:5000');
+// Global config: In production (Vercel), both frontend & backend are on same domain.
+// Use relative URLs so /api/* calls go to the same Vercel deployment.
+// In local dev, fall back to localhost:5000.
+const isProd = import.meta.env.PROD;
+axios.defaults.baseURL = isProd ? '' : (import.meta.env.VITE_API_URL || 'http://localhost:5000');
 
 // Create a configured axios instance (or use global axios)
 axios.interceptors.response.use(

@@ -1,23 +1,29 @@
 // Root-level Vercel serverless handler
-// Imports Express app from server/src/app.js
-import app from '../server/src/app.js';
-import connectDB from '../server/src/config/db.js';
-
 let isConnected = false;
+let appInstance = null;
 
 export default async function handler(req, res) {
     try {
-        if (!isConnected) {
-            await connectDB();
-            isConnected = true;
+        if (!appInstance) {
+            // Dynamic imports to catch any top-level errors in app.js or db.js
+            const { default: app } = await import('../server/src/app.js');
+            const { default: connectDB } = await import('../server/src/config/db.js');
+            
+            if (!isConnected) {
+                await connectDB();
+                isConnected = true;
+            }
+            appInstance = app;
         }
-        return app(req, res);
+        
+        return appInstance(req, res);
     } catch (error) {
         console.error("Vercel API Handler Error:", error);
         return res.status(500).json({ 
             success: false, 
-            message: "API Server Error", 
-            error: error.message 
+            message: "API Server Initialization Error", 
+            error: error.message,
+            stack: error.stack
         });
     }
 }

@@ -1,0 +1,201 @@
+/* ============================================
+   MARKS MANAGEMENT — LAYOUT FIX
+   ============================================ */
+
+/* Main container: fill available space, NOT a full-page bg */
+.marks-container {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 1rem 0;
+}
+
+/* Override the universityadmin-theme full-page styles when inside a sidebar layout */
+.main-content .marks-container.universityadmin-theme,
+.page-content .marks-container.universityadmin-theme {
+    background: transparent !important;
+    min-height: unset !important;
+}
+
+/* Tabs row — full width */
+.tabs-wrapper {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Tab buttons */
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s;
+    white-space: nowrap;
+}
+.tab-btn:hover {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.9);
+}
+.tab-btn.active {
+    background: rgba(15, 240, 252, 0.12);
+    color: #0ff0fc;
+    font-weight: 600;
+    border-bottom: 2px solid #0ff0fc;
+}
+
+/* Tab content panel — MUST fill full width */
+.tab-content {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Glass panel — transparent background, full width */
+.tab-content.glass-panel,
+.glass-panel {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Status badges */
+.badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-draft      { background: rgba(255, 204, 0, 0.15);    color: #ffcc00; }
+.badge-submitted  { background: rgba(15, 240, 252, 0.15);   color: #0ff0fc; }
+.badge-verified   { background: rgba(80, 204, 127, 0.15);   color: #50cc7f; }
+.badge-locked     { background: rgba(255, 27, 107, 0.15);   color: #ff1b6b; }
+
+/* Action buttons */
+.action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+}
+.action-btn:hover  { background: rgba(255,255,255,0.08); transform: scale(1.1); }
+.verify-btn:hover  { background: rgba(80, 204, 127, 0.15); }
+.lock-btn:hover    { background: rgba(255, 27, 107, 0.15); }
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255,255,255,0.1);
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+input:checked + .slider           { background-color: #0ff0fc; }
+input:focus  + .slider            { box-shadow: 0 0 1px #0ff0fc; }
+input:checked + .slider:before    { transform: translateX(22px); }
+.slider.round                     { border-radius: 34px; }
+.slider.round:before              { border-radius: 50%; }
+
+/* Page header */
+.page-header {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.page-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+}
+.page-header p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+/* Icon wrapper */
+.icon-wrapper.primary {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(15, 240, 252, 0.12);
+    border: 1px solid rgba(15, 240, 252, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0ff0fc;
+    flex-shrink: 0;
+}
+
+/* Alert */
+.alert {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0.85rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+.alert-success {
+    background: rgba(80, 204, 127, 0.12);
+    border: 1px solid rgba(80, 204, 127, 0.3);
+    color: #50cc7f;
+}
+.alert-danger {
+    background: rgba(255, 27, 107, 0.12);
+    border: 1px solid rgba(255, 27, 107, 0.3);
+    color: #ff6b9d;
+}
+
+/* Section title */
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabs-wrapper { gap: 4px; }
+    .tab-btn      { padding: 6px 12px; font-size: 0.82rem; }
+}

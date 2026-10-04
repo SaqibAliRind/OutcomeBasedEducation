@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap');
+@import url('./master-ui.css');
+
+/* ======================================================
+   LEGACY VARIABLE ALIASES
+   Keep these so old components using var(--primary-color) 
+   still work without needing to be refactored.
+   ====================================================== */
+:root {
+  /* Legacy aliases — do NOT remove, used by many components */
+  --primary-color:    #0ff0fc;
+  --secondary-color:  #bc13fe;
+  --background-dark:  #020917;
+  --glass-bg:         rgba(255, 255, 255, 0.03);
+  --glass-border:     rgba(255, 255, 255, 0.08);
+  --text-primary:     #ffffff;
+  --text-secondary:   rgba(255, 255, 255, 0.6);
+  --shadow-soft:      0 8px 30px rgba(0,0,0,0.3);
+  --shadow-hover:     0 12px 40px rgba(15,240,252,0.12);
+  --transition:       all 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--uni-bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+}

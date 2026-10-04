@@ -1,0 +1,185 @@
+{
+  "User": [
+    {
+      "_id": "6a5881031368d3c48d9a6357",
+      "name": "Super Admin",
+      "email": "admin@alkawthar.com",
+      "password": "$2b$10$VXTPboXowwaFzsXUAfpOdeIPl4ng5bmhoxSe0HMV6EkIv5fzwe/QS",
+      "role": "SuperAdmin",
+      "createdAt": "2026-07-16T06:58:11.403Z",
+      "updatedAt": "2026-07-16T07:45:22.273Z",
+      "__v": 0,
+      "resetPasswordExpire": "2026-07-16T07:32:51.446Z",
+      "resetPasswordToken": "34203e55141a34904ee860b3ede899589ff0a816df9eb8ab483481d64aef7e03",
+      "isActive": true
+    },
+    {
+      "_id": "6a5894753c4d0345cb192697",
+      "name": "saqib",
+      "email": "saqibrind46@gmail.com",
+      "password": "$2b$10$9cDmGRZdK02zE/p1SMf56uk1txgE9x8CgrzlRDRehpas.yFTuVKIG",
+      "role": "Student",
+      "isActive": true,
+      "createdAt": "2026-07-16T08:21:09.941Z",
+      "updatedAt": "2026-07-16T08:21:09.941Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5894bc3c4d0345cb192698",
+      "name": "Miss NIda e rub",
+      "email": "nida123@gmail.com",
+      "password": "$2b$10$6TeCmt3/M03u.11RQOKrTOh/5E9gGLqjfflfJKmCGusKuVuSmeLVq",
+      "role": "Teacher",
+      "isActive": true,
+      "createdAt": "2026-07-16T08:22:20.474Z",
+      "updatedAt": "2026-07-16T08:22:20.474Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5894e53c4d0345cb192699",
+      "name": "Miss Ingila",
+      "email": "ingila123@gmail.com",
+      "password": "$2b$10$gLch8f6XjiEBkH1Jq6znm.SHIYupRXf77Pl1JmhynbCs/qY6uzgaK",
+      "role": "ProgramCoordinator",
+      "isActive": true,
+      "createdAt": "2026-07-16T08:23:01.917Z",
+      "updatedAt": "2026-07-16T08:23:01.917Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5895043c4d0345cb19269a",
+      "name": "Abdul Nafay",
+      "email": "nafay123@gmail.com",
+      "password": "$2b$10$Bj873URUY1GlDNcV.VtK3OhjW04EmF0AVxwta7CAoUrc6mEZn3gSS",
+      "role": "HOD",
+      "isActive": true,
+      "createdAt": "2026-07-16T08:23:32.568Z",
+      "updatedAt": "2026-07-16T08:23:32.568Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a58951f3c4d0345cb19269b",
+      "name": "Moin",
+      "email": "moin123@gmail.com",
+      "password": "$2b$10$eMbJALq.NgjmrFOT3zKftOoZZ/5Wmu2cmt15cHydzRnHIHr6JgqV6",
+      "role": "Dean",
+      "isActive": true,
+      "createdAt": "2026-07-16T08:23:59.530Z",
+      "updatedAt": "2026-07-16T08:23:59.530Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5895423c4d0345cb19269c",
+      "name": "Inayatullah",
+      "email": "Inayat123@gmail.com",
+      "password": "$2b$10$zQ/7uyl7OtPMjYDFGbxe7e5TfZVMkCDSLfto5a94BUoUAC2M/2Xiq",
+      "role": "UniversityAdmin",
+      "isActive": true,
+      "createdAt": "2026-07-16T08:24:34.749Z",
+      "updatedAt": "2026-07-16T08:24:34.749Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5b25eac1b4bbb2e2bc9c01",
+      "name": "Aryan",
+      "email": "aryan@gmail.com",
+      "password": "$2b$10$58GqWfkpHTgsVxu9hjso1uCi9WVD2CXVq5wSDDTUkFmkYuIXBVqP2",
+      "role": "UniversityAdmin",
+      "isActive": true,
+      "createdAt": "2026-07-18T07:06:18.906Z",
+      "updatedAt": "2026-07-18T07:06:18.906Z",
+      "__v": 0
+    }
+  ],
+  "Session": [],
+  "Department": [],
+  "Program": [],
+  "Student": [],
+  "Teacher": [],
+  "Activity": [],
+  "University": [
+    {
+      "_id": "6a5b3825daca14bf96ec1757",
+      "name": "Elina Artoria",
+      "shortName": "asasa",
+      "code": "342343",
+      "email": "glowify423@gmail.com",
+      "phone": "433534533544",
+      "address": "ddsfs",
+      "city": "karacji",
+      "province": "sindh",
+      "country": "pakistan",
+      "postalCode": "",
+      "nceacStatus": "Accredited",
+      "timeZone": "Asia/Karachi",
+      "currency": "PKR 500000",
+      "status": "Active",
+      "isDeleted": false,
+      "deletedAt": null,
+      "settings": {
+        "academic": {
+          "currentSession": null,
+          "currentSemester": null
+        },
+        "localization": {
+          "language": "en",
+          "dateFormat": "DD/MM/YYYY"
+        },
+        "branding": {
+          "themeColor": "#d6d6d6",
+          "favicon": ""
+        }
+      },
+      "createdAt": "2026-07-18T08:24:05.422Z",
+      "updatedAt": "2026-07-20T06:49:35.857Z",
+      "__v": 0,
+      "banner": "",
+      "hecNo": "",
+      "logo": "",
+      "website": ""
+    }
+  ],
+  "Faculty": [],
+  "Semester": [],
+  "Section": [],
+  "Batch": [],
+  "Course": [],
+  "AcademicCalendar": [],
+  "Role": [],
+  "SystemSettings": [
+    {
+      "_id": "6a5dcc5ccd6fd00932efef81",
+      "smtp": {
+        "host": "",
+        "port": "",
+        "email": "",
+        "password": "",
+        "encryption": "None",
+        "senderName": ""
+      },
+      "jwt": {
+        "secretKey": "",
+        "tokenExpiry": "1d",
+        "refreshTokenExpiry": "7d"
+      },
+      "cloudinary": {
+        "cloudName": "",
+        "apiKey": "",
+        "apiSecret": ""
+      },
+      "backup": {
+        "autoBackup": false,
+        "schedule": "Weekly"
+      },
+      "ai": {
+        "openAiKey": "",
+        "geminiKey": "",
+        "defaultModel": "Gemini",
+        "aiStatus": true
+      },
+      "createdAt": "2026-07-20T07:21:00.989Z",
+      "updatedAt": "2026-07-20T07:21:00.989Z",
+      "__v": 0
+    }
+  ]
+}

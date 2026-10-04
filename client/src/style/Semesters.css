@@ -1,0 +1,2 @@
+.academic-setup-pane { padding: 2rem; color: var(--text-primary); border-radius: 12px; margin-top: 2rem; background: var(--glass-bg); font-family: 'Inter', sans-serif; box-shadow: var(--shadow-soft); }
+.academic-setup-pane h2 { font-weight: 700; color: var(--primary-color); margin-bottom: 1rem; }

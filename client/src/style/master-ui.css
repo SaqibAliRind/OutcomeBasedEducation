@@ -1,0 +1,852 @@
+/* =========================================================================
+   AL-KAWTHAR OBE SYSTEM — MASTER DESIGN SYSTEM
+   Unified CSS for all roles, pages, components, and modals
+   ========================================================================= */
+
+/* ==================================
+   1. DESIGN TOKENS
+===================================== */
+:root {
+  /* Primary Brand */
+  --uni-primary:        #0ff0fc;
+  --uni-primary-dim:    rgba(15, 240, 252, 0.15);
+  --uni-primary-hover:  #0cd6e0;
+  --uni-primary-glow:   0 0 15px rgba(15, 240, 252, 0.4);
+
+  /* Secondary */
+  --uni-secondary:      #bc13fe;
+  --uni-secondary-dim:  rgba(188, 19, 254, 0.15);
+
+  /* Semantic Colors */
+  --uni-success:        #50cc7f;
+  --uni-success-dim:    rgba(80, 204, 127, 0.15);
+  --uni-success-border: rgba(80, 204, 127, 0.3);
+
+  --uni-danger:         #ff1b6b;
+  --uni-danger-dim:     rgba(255, 27, 107, 0.15);
+  --uni-danger-border:  rgba(255, 27, 107, 0.3);
+
+  --uni-warning:        #ffcc00;
+  --uni-warning-dim:    rgba(255, 204, 0, 0.15);
+  --uni-warning-border: rgba(255, 204, 0, 0.3);
+
+  --uni-info:           #2196f3;
+  --uni-info-dim:       rgba(33, 150, 243, 0.15);
+  --uni-info-border:    rgba(33, 150, 243, 0.3);
+
+  /* Backgrounds */
+  --uni-bg:             #020917;
+  --uni-bg-gradient:    linear-gradient(135deg, #020917 0%, #08162e 100%);
+  --uni-surface:        rgba(255, 255, 255, 0.03);
+  --uni-surface-hover:  rgba(255, 255, 255, 0.06);
+
+  /* Borders */
+  --uni-border:         rgba(255, 255, 255, 0.08);
+  --uni-border-bright:  rgba(15, 240, 252, 0.2);
+  --uni-border-focus:   rgba(15, 240, 252, 0.5);
+
+  /* Text */
+  --uni-text:           #ffffff;
+  --uni-muted:          rgba(255, 255, 255, 0.55);
+
+  /* Shape */
+  --uni-radius-xs:  6px;
+  --uni-radius-sm:  8px;
+  --uni-radius-md:  12px;
+  --uni-radius-lg:  16px;
+  --uni-radius-xl:  24px;
+
+  /* Shadows */
+  --uni-shadow:       0 8px 32px rgba(0,0,0,0.35);
+  --uni-shadow-hover: 0 12px 40px rgba(15, 240, 252, 0.12);
+  --uni-shadow-modal: 0 24px 64px rgba(0,0,0,0.7);
+}
+
+/* ==================================
+   2. GLOBAL BASE
+===================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif !important;
+  background: var(--uni-bg-gradient) !important;
+  background-attachment: fixed !important;
+  color: var(--uni-text) !important;
+  min-height: 100vh !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Dashboard layout */
+.dashboard-wrapper {
+  display: flex !important;
+  min-height: 100vh !important;
+  background: var(--uni-bg-gradient) !important;
+}
+
+.main-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 2rem 2.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+
+/* Fade-in animation for pages */
+.fade-in {
+  animation: masterFadeIn 0.35s ease;
+}
+@keyframes masterFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Spinner */
+.spinner {
+  animation: masterSpin 0.8s linear infinite !important;
+}
+@keyframes masterSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==================================
+   3. PAGE HEADER
+===================================== */
+.top-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.header-title h1 {
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  color: var(--uni-text) !important;
+  margin: 0 0 4px !important;
+}
+
+.header-title p {
+  font-size: 0.9rem !important;
+  color: var(--uni-muted) !important;
+  margin: 0 !important;
+}
+
+/* ==================================
+   4. GLASS CARDS & PANELS
+===================================== */
+.glass-panel-dash,
+.stat-card,
+.chart-card,
+.detailed-card {
+  background: var(--uni-surface) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--uni-border) !important;
+  border-radius: var(--uni-radius-lg) !important;
+  padding: 1.5rem !important;
+  box-shadow: var(--uni-shadow) !important;
+  color: var(--uni-text) !important;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s !important;
+}
+
+.stat-card {
+  cursor: default !important;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--uni-border-bright) !important;
+  box-shadow: var(--uni-shadow-hover) !important;
+}
+
+/* Stat card internals */
+.stat-content h3 {
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--uni-muted) !important;
+  margin-bottom: 4px !important;
+}
+
+.stat-content h2 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: var(--uni-text) !important;
+  margin: 0 !important;
+}
+
+.stat-iconBox {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: var(--uni-radius-md) !important;
+  background: var(--uni-surface-hover) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+
+/* Section header inside panels */
+.section-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  margin-bottom: 1.25rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 1px solid var(--uni-border) !important;
+}
+
+.section-header h3 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--uni-primary) !important;
+  margin: 0 !important;
+}
+
+/* ==================================
+   5. BUTTON SYSTEM
+===================================== */
+/* Base for every named button class in the project */
+.primary-btn,
+.secondary-btn,
+.cancel-btn,
+.close-btn,
+.page-btn,
+.action-btn,
+.delete-btn,
+.danger-btn,
+.success-btn,
+.warning-btn,
+.verify-btn,
+.lock-btn,
+.outline-btn,
+.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--uni-radius-sm) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  border: none !important;
+}
+
+/* Primary — Teal/Cyan */
+.primary-btn,
+.verify-btn,
+.lock-btn {
+  background: var(--uni-primary) !important;
+  color: #020917 !important;
+  padding: 0.65rem 1.25rem !important;
+  box-shadow: var(--uni-primary-glow) !important;
+}
+.primary-btn:hover,
+.verify-btn:hover,
+.lock-btn:hover {
+  background: var(--uni-primary-hover) !important;
+  box-shadow: 0 0 22px rgba(15, 240, 252, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Secondary / Cancel / Close / Page */
+.secondary-btn,
+.cancel-btn,
+.page-btn,
+.close-btn,
+.outline-btn {
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--uni-text) !important;
+  border: 1px solid var(--uni-border) !important;
+  padding: 0.65rem 1.25rem !important;
+}
+.secondary-btn:hover,
+.cancel-btn:hover,
+.page-btn:hover,
+.close-btn:hover,
+.outline-btn:hover {
+  background: rgba(255,255,255,0.1) !important;
+  border-color: rgba(255,255,255,0.2) !important;
+}
+
+/* Danger — delete/logout */
+.danger-btn,
+.delete-btn {
+  background: var(--uni-danger-dim) !important;
+  color: var(--uni-danger) !important;
+  border: 1px solid var(--uni-danger-border) !important;
+  padding: 0.65rem 1.25rem !important;
+}
+.danger-btn:hover,
+.delete-btn:hover {
+  background: rgba(255,27,107,0.25) !important;
+}
+
+/* Success */
+.success-btn {
+  background: var(--uni-success-dim) !important;
+  color: var(--uni-success) !important;
+  border: 1px solid var(--uni-success-border) !important;
+  padding: 0.65rem 1.25rem !important;
+}
+
+/* Warning */
+.warning-btn {
+  background: var(--uni-warning-dim) !important;
+  color: var(--uni-warning) !important;
+  border: 1px solid var(--uni-warning-border) !important;
+  padding: 0.65rem 1.25rem !important;
+}
+
+/* Action buttons (icon-only in tables) */
+.action-btn {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--uni-muted) !important;
+  border: 1px solid var(--uni-border) !important;
+  border-radius: var(--uni-radius-xs) !important;
+}
+.action-btn:hover {
+  background: var(--uni-primary-dim) !important;
+  color: var(--uni-primary) !important;
+  border-color: var(--uni-border-bright) !important;
+}
+.action-btn.edit:hover {
+  background: rgba(33,150,243,0.15) !important;
+  color: #2196f3 !important;
+  border-color: rgba(33,150,243,0.4) !important;
+}
+.action-btn.delete:hover,
+.action-btn.toggle:hover {
+  background: var(--uni-danger-dim) !important;
+  color: var(--uni-danger) !important;
+  border-color: var(--uni-danger-border) !important;
+}
+
+/* Close button in modals */
+.close-btn {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  border-radius: var(--uni-radius-xs) !important;
+}
+
+/* Disabled state for all buttons */
+button:disabled,
+.primary-btn:disabled,
+.secondary-btn:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  filter: grayscale(40%) !important;
+}
+
+/* Generic unstyled button baseline */
+button {
+  font-family: 'Inter', sans-serif !important;
+  cursor: pointer !important;
+}
+
+button:active {
+  transform: translateY(1px) !important;
+}
+
+/* Logout button specific */
+.logout-btn {
+  background: rgba(231,76,60,0.08) !important;
+  color: #ff7675 !important;
+  border: 1px solid rgba(231,76,60,0.25) !important;
+  padding: 0.65rem 1rem !important;
+  border-radius: var(--uni-radius-sm) !important;
+  width: 100% !important;
+  justify-content: center !important;
+}
+.logout-btn:hover {
+  background: rgba(231,76,60,0.18) !important;
+}
+
+/* ==================================
+   6. TABLE SYSTEM
+===================================== */
+.table-container {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border-radius: var(--uni-radius-md) !important;
+  background: var(--uni-surface) !important;
+  border: 1px solid var(--uni-border) !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.uni-table,
+.glass-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+.uni-table thead tr,
+.glass-table thead tr {
+  background: rgba(0,0,0,0.25) !important;
+}
+
+.uni-table th,
+.glass-table th {
+  padding: 1rem 1.2rem !important;
+  text-align: left !important;
+  color: var(--uni-primary) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  white-space: nowrap !important;
+  border-bottom: 2px solid var(--uni-border-bright) !important;
+}
+
+.uni-table td,
+.glass-table td {
+  padding: 1rem 1.2rem !important;
+  border-bottom: 1px solid var(--uni-border) !important;
+  color: var(--uni-text) !important;
+  font-size: 0.9rem !important;
+  vertical-align: middle !important;
+}
+
+.uni-table tr:last-child td,
+.glass-table tr:last-child td {
+  border-bottom: none !important;
+}
+
+.uni-table tbody tr:hover td,
+.glass-table tbody tr:hover td {
+  background: rgba(15, 240, 252, 0.03) !important;
+}
+
+/* Actions column in tables */
+.actions-col {
+  display: flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+}
+
+/* Table loading state */
+.table-loading {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 3rem !important;
+}
+
+/* Table empty state */
+.table-empty {
+  text-align: center !important;
+  padding: 3rem !important;
+  color: var(--uni-muted) !important;
+  font-size: 0.95rem !important;
+}
+
+/* ==================================
+   7. FORM SYSTEM
+===================================== */
+.form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  margin-bottom: 1.15rem !important;
+}
+
+.form-group label {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  color: var(--uni-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Universal input/select/textarea inside dashboard */
+.dashboard-wrapper input[type="text"],
+.dashboard-wrapper input[type="email"],
+.dashboard-wrapper input[type="password"],
+.dashboard-wrapper input[type="number"],
+.dashboard-wrapper input[type="date"],
+.dashboard-wrapper input[type="time"],
+.dashboard-wrapper select,
+.dashboard-wrapper textarea,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-input,
+.form-select {
+  background: rgba(0,0,0,0.25) !important;
+  border: 1px solid var(--uni-border) !important;
+  border-radius: var(--uni-radius-sm) !important;
+  color: var(--uni-text) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.92rem !important;
+  padding: 0.72rem 1rem !important;
+  width: 100% !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  outline: none !important;
+}
+
+.dashboard-wrapper input:focus,
+.dashboard-wrapper select:focus,
+.dashboard-wrapper textarea:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--uni-border-focus) !important;
+  box-shadow: 0 0 0 3px rgba(15,240,252,0.12) !important;
+  background: rgba(15,240,252,0.04) !important;
+}
+
+.dashboard-wrapper input::placeholder,
+.dashboard-wrapper textarea::placeholder {
+  color: rgba(255,255,255,0.28) !important;
+}
+
+/* Two-column form grid */
+.form-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.2rem !important;
+}
+
+/* ==================================
+   8. MODAL SYSTEM
+===================================== */
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.72) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 1000 !important;
+  padding: 1rem !important;
+}
+
+.modal-content {
+  background: #030e1c !important;
+  border: 1px solid var(--uni-border-bright) !important;
+  border-radius: var(--uni-radius-lg) !important;
+  box-shadow: var(--uni-shadow-modal) !important;
+  width: 100% !important;
+  max-width: 640px !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  padding: 2rem !important;
+  animation: modalSlideUp 0.25s ease !important;
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 1px solid var(--uni-border) !important;
+}
+
+.modal-header h2,
+.modal-header h3 {
+  margin: 0 !important;
+  color: var(--uni-primary) !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+}
+
+.modal-footer {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 0.75rem !important;
+  margin-top: 1.5rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid var(--uni-border) !important;
+}
+
+/* ==================================
+   9. STATUS BADGES
+===================================== */
+.status-badge,
+.badge,
+.role-badge {
+  display: inline-block !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.03em !important;
+}
+
+/* Color variants */
+.badge-success, .badge-verified, .badge-locked,
+.status-badge.active, .status-badge.achieved {
+  background: var(--uni-success-dim) !important;
+  color: var(--uni-success) !important;
+  border: 1px solid var(--uni-success-border) !important;
+}
+
+.badge-danger,
+.status-badge.inactive, .status-badge.fail, .status-badge.not-achieved {
+  background: var(--uni-danger-dim) !important;
+  color: var(--uni-danger) !important;
+  border: 1px solid var(--uni-danger-border) !important;
+}
+
+.badge-warning, .badge-draft, .badge-revision,
+.status-badge.pending, .status-badge.revision {
+  background: var(--uni-warning-dim) !important;
+  color: var(--uni-warning) !important;
+  border: 1px solid var(--uni-warning-border) !important;
+}
+
+.badge-info, .badge-submitted, .badge-code,
+.status-badge.submitted, .status-badge.approved {
+  background: var(--uni-info-dim) !important;
+  color: var(--uni-info) !important;
+  border: 1px solid var(--uni-info-border) !important;
+}
+
+/* Role badges */
+.role-badge.SuperAdmin    { background: var(--uni-primary-dim) !important; color: var(--uni-primary) !important; border: 1px solid var(--uni-border-bright) !important; }
+.role-badge.UniversityAdmin { background: rgba(33,150,243,0.12) !important; color: #2196f3 !important; border: 1px solid rgba(33,150,243,0.3) !important; }
+.role-badge.Dean          { background: var(--uni-secondary-dim) !important; color: var(--uni-secondary) !important; border: 1px solid rgba(188,19,254,0.3) !important; }
+.role-badge.HOD           { background: var(--uni-warning-dim) !important; color: var(--uni-warning) !important; border: 1px solid var(--uni-warning-border) !important; }
+.role-badge.Teacher       { background: rgba(100,100,100,0.15) !important; color: #aaa !important; border: 1px solid rgba(100,100,100,0.3) !important; }
+.role-badge.Student       { background: rgba(80,204,127,0.1) !important; color: var(--uni-success) !important; border: 1px solid var(--uni-success-border) !important; }
+.role-badge.QEC           { background: rgba(33,150,243,0.12) !important; color: #2196f3 !important; border: 1px solid rgba(33,150,243,0.3) !important; }
+.role-badge.ProgramCoordinator { background: rgba(236, 72, 153, 0.12) !important; color: #ec4899 !important; border: 1px solid rgba(236,72,153,0.3) !important; }
+
+/* ==================================
+   10. TABS
+===================================== */
+.tabs-wrapper {
+  display: flex !important;
+  gap: 0.4rem !important;
+  margin-bottom: 1.5rem !important;
+  border-bottom: 1px solid var(--uni-border) !important;
+  padding-bottom: 0.75rem !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+.tabs-wrapper::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: var(--uni-muted) !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border-radius: var(--uni-radius-sm) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.tab-btn:hover {
+  color: var(--uni-text) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+.tab-btn.active {
+  color: var(--uni-primary) !important;
+  background: var(--uni-primary-dim) !important;
+  border-color: var(--uni-border-bright) !important;
+}
+
+/* ==================================
+   11. TOOLBAR / FILTER BAR
+===================================== */
+.toolbar-wrapper,
+.filter-bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.9rem !important;
+  align-items: center !important;
+  margin-bottom: 1.25rem !important;
+  padding: 1rem 1.2rem !important;
+  background: var(--uni-surface) !important;
+  border: 1px solid var(--uni-border) !important;
+  border-radius: var(--uni-radius-md) !important;
+}
+
+.toolbar-wrapper select,
+.toolbar-wrapper input,
+.filter-bar select,
+.filter-bar input {
+  background: rgba(0,0,0,0.3) !important;
+  border: 1px solid var(--uni-border) !important;
+  padding: 0.6rem 0.9rem !important;
+  border-radius: var(--uni-radius-sm) !important;
+  color: var(--uni-text) !important;
+  font-size: 0.9rem !important;
+  min-width: 130px !important;
+}
+
+/* ==================================
+   12. ALERTS / NOTICES
+===================================== */
+.um-alert,
+.alert-box {
+  padding: 0.85rem 1.1rem !important;
+  border-radius: var(--uni-radius-sm) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.um-alert.error,
+.alert-box.error {
+  background: var(--uni-danger-dim) !important;
+  color: var(--uni-danger) !important;
+  border-left: 4px solid var(--uni-danger) !important;
+}
+
+.um-alert.success,
+.alert-box.success {
+  background: var(--uni-success-dim) !important;
+  color: var(--uni-success) !important;
+  border-left: 4px solid var(--uni-success) !important;
+}
+
+.um-alert.warning,
+.alert-box.warning {
+  background: var(--uni-warning-dim) !important;
+  color: var(--uni-warning) !important;
+  border-left: 4px solid var(--uni-warning) !important;
+}
+
+/* ==================================
+   13. TYPOGRAPHY
+===================================== */
+.header-title h1,
+.page-title {
+  font-size: 1.85rem !important;
+  font-weight: 700 !important;
+  color: var(--uni-text) !important;
+  margin: 0 0 4px !important;
+}
+
+.page-subtitle,
+.header-title p {
+  font-size: 0.88rem !important;
+  color: var(--uni-muted) !important;
+  margin: 0 !important;
+}
+
+/* ==================================
+   14. CHART CONTAINERS
+===================================== */
+.chart-container,
+.chart-wrapper {
+  background: var(--uni-surface) !important;
+  border: 1px solid var(--uni-border) !important;
+  border-radius: var(--uni-radius-lg) !important;
+  padding: 1.5rem !important;
+}
+
+/* ==================================
+   15. EMPTY STATES
+===================================== */
+.empty-state {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 3rem !important;
+  text-align: center !important;
+  color: var(--uni-muted) !important;
+  gap: 1rem !important;
+}
+
+.empty-state h3 {
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 1.1rem !important;
+  margin: 0 !important;
+}
+
+.empty-state p {
+  font-size: 0.9rem !important;
+  max-width: 360px !important;
+  margin: 0 !important;
+}
+
+/* ==================================
+   16. RESPONSIVE
+===================================== */
+@media (max-width: 900px) {
+  .main-content {
+    padding: 1.25rem 1rem !important;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-wrapper {
+    flex-direction: column !important;
+    overflow: auto !important;
+  }
+  .main-content {
+    padding: 1rem !important;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .toolbar-wrapper,
+  .filter-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .modal-content {
+    padding: 1.5rem !important;
+    max-height: 95vh !important;
+  }
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .header-title h1 {
+    font-size: 1.4rem !important;
+  }
+}

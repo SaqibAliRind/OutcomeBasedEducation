@@ -1,0 +1,642 @@
+/* ===== SUPERADMIN THEMATIC ISOLATION ===== */
+@import './master-ui.css';
+
+.superadmin-theme {
+    background: linear-gradient(135deg, #020917 0%, #08162e 100%) !important;
+    min-height: 100vh;
+    color: #ffffff !important;
+}
+
+/* Override general dashboard wrappers for SuperAdmin */
+.superadmin-theme.dashboard-wrapper {
+    background: linear-gradient(135deg, #020917 0%, #08162e 100%) !important;
+}
+
+.superadmin-theme .main-content {
+    background: transparent;
+}
+
+/* Glass Panels with Dark Theme styling */
+.superadmin-theme .glass-panel-dash {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4) !important;
+    color: #ffffff !important;
+}
+
+/* Stat Cards Dark Theme */
+.superadmin-theme .stat-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.superadmin-theme .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(15, 240, 252, 0.15) !important;
+    border-color: rgba(15, 240, 252, 0.3) !important;
+}
+
+.superadmin-theme .stat-content h3 {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.superadmin-theme .stat-content h2 {
+    color: #ffffff !important;
+}
+
+.superadmin-theme .stat-iconBox {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Health cards and status display */
+.superadmin-theme .health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.superadmin-theme .detailed-card {
+    padding: 1.5rem;
+    border-radius: 14px;
+}
+
+.superadmin-theme .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.superadmin-theme .card-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0ff0fc !important;
+}
+
+.superadmin-theme .card-header.border-bottom {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.superadmin-theme .metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.superadmin-theme .metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.superadmin-theme .metric-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.superadmin-theme .metric-item span {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.superadmin-theme .metric-item strong {
+    color: #ffffff;
+}
+
+/* ==================================
+   TABLES IN SUPERADMIN (glass-table & uni-table)
+===================================== */
+.superadmin-theme .glass-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    color: #ffffff;
+}
+
+.superadmin-theme .glass-table th {
+    text-align: left;
+    padding: 1.1rem 1rem;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08) !important;
+    color: #0ff0fc !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.superadmin-theme .glass-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.superadmin-theme .glass-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   USER MANAGEMENT TABLE (uni-table)
+===================================== */
+.superadmin-theme .table-container {
+    overflow-x: auto;
+}
+
+.superadmin-theme .uni-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.superadmin-theme .uni-table thead tr {
+    background: rgba(15, 240, 252, 0.04) !important;
+}
+
+.superadmin-theme .uni-table th {
+    text-align: left !important;
+    padding: 1rem 1.2rem !important;
+    background: rgba(15, 240, 252, 0.05) !important;
+    border-bottom: 2px solid rgba(15, 240, 252, 0.2) !important;
+    color: #0ff0fc !important;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap !important;
+}
+
+.superadmin-theme .uni-table td {
+    padding: 1rem 1.2rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.9rem !important;
+}
+
+.superadmin-theme .uni-table td strong {
+    color: #ffffff !important;
+}
+
+.superadmin-theme .uni-table tbody tr:hover td {
+    background-color: rgba(15, 240, 252, 0.03) !important;
+}
+
+/* Actions column */
+.superadmin-theme .actions-col {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* Action buttons (edit / toggle / reset / delete) */
+.superadmin-theme .action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    color: #fff;
+}
+
+.superadmin-theme .action-btn.view {
+    background: rgba(80, 204, 127, 0.12);
+    color: #50cc7f;
+}
+.superadmin-theme .action-btn.view:hover {
+    background: #50cc7f;
+    color: #020917;
+    box-shadow: 0 0 10px rgba(80, 204, 127, 0.5);
+}
+
+.superadmin-theme .action-btn.edit {
+    background: rgba(15, 240, 252, 0.12);
+    color: #0ff0fc;
+}
+.superadmin-theme .action-btn.edit:hover {
+    background: #0ff0fc;
+    color: #020917;
+    box-shadow: 0 0 10px rgba(15, 240, 252, 0.5);
+}
+
+.superadmin-theme .action-btn.toggle {
+    background: rgba(255, 204, 0, 0.12);
+    color: #ffcc00;
+}
+.superadmin-theme .action-btn.toggle:hover {
+    background: #ffcc00;
+    color: #020917;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+.superadmin-theme .action-btn.reset {
+    background: rgba(188, 19, 254, 0.12);
+    color: #bc13fe;
+}
+.superadmin-theme .action-btn.reset:hover {
+    background: #bc13fe;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+}
+
+.superadmin-theme .action-btn.delete {
+    background: rgba(255, 27, 107, 0.12);
+    color: #ff1b6b;
+}
+.superadmin-theme .action-btn.delete:hover {
+    background: #ff1b6b;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 27, 107, 0.5);
+}
+
+/* Role Badges */
+.superadmin-theme .role-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 1px solid transparent;
+}
+.superadmin-theme .role-badge.SuperAdmin       { background: rgba(15, 240, 252, 0.15); color: #0ff0fc; border-color: rgba(15, 240, 252, 0.3); }
+.superadmin-theme .role-badge.UniversityAdmin  { background: rgba(255, 204, 0, 0.15);  color: #ffcc00; border-color: rgba(255, 204, 0, 0.3); }
+.superadmin-theme .role-badge.Dean             { background: rgba(188, 19, 254, 0.15); color: #bc13fe; border-color: rgba(188, 19, 254, 0.3); }
+.superadmin-theme .role-badge.HOD              { background: rgba(69, 202, 255, 0.15); color: #45caff; border-color: rgba(69, 202, 255, 0.3); }
+.superadmin-theme .role-badge.ProgramCoordinator { background: rgba(255, 154, 158, 0.15); color: #ff9a9e; border-color: rgba(255, 154, 158, 0.3); }
+.superadmin-theme .role-badge.Teacher          { background: rgba(80, 204, 127, 0.15); color: #50cc7f; border-color: rgba(80, 204, 127, 0.3); }
+.superadmin-theme .role-badge.Student          { background: rgba(255, 255, 255, 0.08); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.15); }
+
+/* Table Images and Actions (legacy compatibility) */
+.superadmin-theme .table-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.superadmin-theme .table-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.superadmin-theme .table-actions button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    color: #fff !important;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.superadmin-theme .table-actions button:hover {
+    background: #0ff0fc !important;
+    color: #000 !important;
+}
+
+.superadmin-theme .delete-btn:hover {
+    background: #ff1b6b !important;
+    color: #fff !important;
+}
+
+/* Badges and Registry Header */
+.superadmin-theme .um-header {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    padding: 1.5rem 2rem !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    color: #ffffff !important;
+}
+
+.superadmin-theme .um-header h2 {
+    color: #0ff0fc !important;
+}
+
+.superadmin-theme .um-header p {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.superadmin-theme .status-badge {
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+
+.superadmin-theme .status-badge.active {
+    background: rgba(80, 204, 127, 0.15) !important;
+    color: #50cc7f !important;
+}
+
+.superadmin-theme .status-badge.inactive {
+    background: rgba(255, 27, 107, 0.15) !important;
+    color: #ff1b6b !important;
+}
+
+/* Modals & Forms */
+.superadmin-theme .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 5, 15, 0.8) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.superadmin-theme .modal-content {
+    background: #040d1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.superadmin-theme .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.superadmin-theme .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.superadmin-theme .form-group label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.superadmin-theme .form-group input,
+.superadmin-theme .form-group select {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: #ffffff !important;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.superadmin-theme .form-group select option {
+    background: #040d1a !important;
+    color: #ffffff !important;
+}
+
+.superadmin-theme .form-group input:focus,
+.superadmin-theme .form-group select:focus {
+    border-color: #0ff0fc !important;
+    box-shadow: 0 0 8px rgba(15, 240, 252, 0.3) !important;
+}
+
+.superadmin-theme .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-top: 1.2rem;
+}
+
+.superadmin-theme .primary-btn {
+    background: var(--uni-primary) !important;
+    border: none !important;
+    color: #020917 !important;
+    font-weight: 600;
+    transition: all 0.3s !important;
+}
+
+.superadmin-theme .primary-btn:hover {
+    background: var(--uni-primary-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--uni-primary-glow);
+}
+
+.superadmin-theme .cancel-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+}
+
+.superadmin-theme .cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Sidebar Custom overrides in Superadmin */
+.superadmin-theme .sidebar {
+    background: #020812 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.superadmin-theme .nav-item {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.superadmin-theme .nav-item:hover {
+    background: rgba(15, 240, 252, 0.05) !important;
+    color: #0ff0fc !important;
+}
+
+.superadmin-theme .nav-item.active {
+    background: rgba(15, 240, 252, 0.1) !important;
+    color: #0ff0fc !important;
+    border-left: 3px solid #0ff0fc !important;
+}
+
+.superadmin-theme .top-header h1 {
+    color: #ffffff !important;
+}
+
+/* ==============================
+   PAGINATION BAR
+================================ */
+.superadmin-theme .pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.superadmin-theme .page-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 6px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    min-width: 36px;
+}
+
+.superadmin-theme .page-btn:hover:not(:disabled) {
+    background: rgba(15, 240, 252, 0.12);
+    border-color: rgba(15, 240, 252, 0.3);
+    color: #0ff0fc;
+}
+
+.superadmin-theme .page-btn.active {
+    background: linear-gradient(135deg, rgba(15, 240, 252, 0.25), rgba(188, 19, 254, 0.15));
+    border-color: #0ff0fc;
+    color: #0ff0fc;
+    font-weight: 700;
+}
+
+.superadmin-theme .page-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.superadmin-theme .page-ellipsis {
+    color: rgba(255, 255, 255, 0.4);
+    padding: 0 4px;
+}
+
+.superadmin-theme .page-info {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    margin-left: 8px;
+}
+
+/* ==============================
+   SEARCH & FILTER INPUTS
+================================ */
+.superadmin-theme .search-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9px;
+    padding: 0.65rem 1rem;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+.superadmin-theme .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.superadmin-theme .search-input:focus {
+    border-color: #0ff0fc;
+    box-shadow: 0 0 8px rgba(15, 240, 252, 0.25);
+}
+
+.superadmin-theme .filter-select {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9px;
+    padding: 0.65rem 1rem;
+    color: #fff;
+    outline: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    min-width: 140px;
+    transition: border-color 0.25s;
+}
+
+.superadmin-theme .filter-select:focus {
+    border-color: #bc13fe;
+    box-shadow: 0 0 8px rgba(188, 19, 254, 0.2);
+}
+
+/* ==============================
+   ALERT BANNERS
+================================ */
+.superadmin-theme .um-alert {
+    padding: 0.75rem 1.2rem;
+    border-radius: 9px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.superadmin-theme .um-alert.error {
+    background: rgba(255, 27, 107, 0.12);
+    border: 1px solid rgba(255, 27, 107, 0.3);
+    color: #ff6b9d;
+}
+
+.superadmin-theme .um-alert.success {
+    background: rgba(80, 204, 127, 0.12);
+    border: 1px solid rgba(80, 204, 127, 0.3);
+    color: #50cc7f;
+}
+
+/* ==============================
+   TABLE LOADING & CLOSE BTN
+================================ */
+.superadmin-theme .table-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.superadmin-theme .close-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 7px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.superadmin-theme .close-btn:hover {
+    background: rgba(255, 27, 107, 0.2);
+    border-color: rgba(255, 27, 107, 0.4);
+    color: #ff1b6b;
+}
+
+.superadmin-theme .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.superadmin-theme .modal-header h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.superadmin-theme .spinner,
+.superadmin-theme .spinner-large {
+    animation: spin 0.8s linear infinite;
+}
+
+.superadmin-theme .spinner-large {
+    width: 40px;
+    height: 40px;
+    color: #0ff0fc;
+}

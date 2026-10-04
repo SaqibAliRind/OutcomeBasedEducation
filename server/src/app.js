@@ -76,6 +76,7 @@ const corsOptions = {
         const allowedOrigins = [
             'http://localhost:5173',
             'http://localhost:3000',
+            'https://outcome-based-education-b1ec.vercel.app',
         ];
         // Allow any Vercel deployment (*.vercel.app) and undefined origin (server-to-server)
         if (!origin || allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {

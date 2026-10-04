@@ -70,8 +70,23 @@ if (!fs.existsSync(uploadsDir)) {
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS — allow localhost dev + production Vercel deployments
+const corsOptions = {
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            'http://localhost:5173',
+            'http://localhost:3000',
+        ];
+        // Allow any Vercel deployment (*.vercel.app) and undefined origin (server-to-server)
+        if (!origin || allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+};
+app.use(cors(corsOptions));
 app.use('/uploads', express.static(uploadsDir));
 app.use(express.json());
 app.use(fileUpload()); // required for restore database features

@@ -222,17 +222,41 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
     const navItems = NAV_CONFIG[role] || NAV_CONFIG.Student;
 
     const [expandedMenus, setExpandedMenus] = useState({});
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const toggleMenu = (id) => {
         setExpandedMenus(prev => ({ ...prev, [id]: !prev[id] }));
     };
 
+    const handleNavClick = (id) => {
+        setActiveTab(id);
+        setMobileOpen(false); // Close drawer when nav item is clicked on mobile
+    };
+
     return (
-        <aside className="sidebar">
-            <div className="sidebar-brand">
-                <LayoutDashboard size={28} className="brand-icon" />
-                <h2>Al-Kawthar</h2>
+        <>
+            {/* Mobile top bar (visible only on small screens) */}
+            <div className="sidebar-mobile-bar">
+                <div className="mobile-brand">
+                    <LayoutDashboard size={22} style={{ color: '#0ff0fc' }} />
+                    <span>Al-Kawthar</span>
+                </div>
+                <button className="hamburger-btn" onClick={() => setMobileOpen(true)} aria-label="Open menu">
+                    <span /><span /><span />
+                </button>
             </div>
+
+            {/* Overlay backdrop */}
+            <div
+                className={`sidebar-overlay ${mobileOpen ? 'active' : ''}`}
+                onClick={() => setMobileOpen(false)}
+            />
+
+            <aside className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+                <div className="sidebar-brand">
+                    <LayoutDashboard size={28} className="brand-icon" />
+                    <h2>Al-Kawthar</h2>
+                </div>
 
             <nav className="sidebar-nav">
                 {navItems.map((item) => {
@@ -258,7 +282,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                                                 key={subItem.id}
                                                 className={`nav-item ${activeTab === subItem.id ? 'active' : ''}`}
                                                 style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', opacity: activeTab === subItem.id ? 1 : 0.7 }}
-                                                onClick={() => setActiveTab(subItem.id)}
+                                                onClick={() => handleNavClick(subItem.id)}
                                             >
                                                 {subItem.label}
                                             </button>
@@ -273,7 +297,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                         <button
                             key={item.id}
                             className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
-                            onClick={() => setActiveTab(item.id)}
+                            onClick={() => handleNavClick(item.id)}
                         >
                             <Icon size={18} />
                             {item.label}
@@ -295,6 +319,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                 </button>
             </div>
         </aside>
+        </>
     );
 };
 

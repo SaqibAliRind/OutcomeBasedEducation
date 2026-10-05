@@ -105,10 +105,13 @@ body {
 
 @media (max-width: 768px) {
   .dashboard-wrapper {
-    flex-direction: column !important;
+    /* Sidebar is a fixed overlay on mobile, so wrapper is just a block */
+    display: block !important;
   }
   .main-content {
     padding: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 

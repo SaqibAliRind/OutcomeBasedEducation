@@ -301,18 +301,21 @@ export const getManagementAnalytics = async (req, res) => {
         // BT Achievement (based on attainments if possible - currently empty to avoid mock data)
         const BT_ACHIEVEMENT = [];
 
-        // Coverage Analysis — from mappings vs CLOs
-        const totalCLOs = CLO_ACHIEVEMENT.length || 1;
+        // Coverage Analysis — how many CLOs/PLOs/GAs met their own individual target
         const targetSettings = await ObeTarget.findOne({ universityId: req.user.university }) || {
             cloTarget: 70, ploTarget: 65, gaTarget: 65
         };
-        const coveredCLOs = CLO_ACHIEVEMENT.filter(c => c.achieved >= targetSettings.cloTarget).length;
-        const coveredPLOs = PLO_ACHIEVEMENT.filter(p => p.achieved >= targetSettings.ploTarget).length;
-        const coveredGAs = GA_REAL.filter(g => g.achieved >= targetSettings.gaTarget).length;
+        // Use each item's own stored target. Fallback to ObeTarget settings if target is 0/missing.
+        const cloThreshold = (targetSettings.cloTarget > 0) ? targetSettings.cloTarget : 70;
+        const ploThreshold = (targetSettings.ploTarget > 0) ? targetSettings.ploTarget : 65;
+        const gaThreshold  = (targetSettings.gaTarget  > 0) ? targetSettings.gaTarget  : 65;
+        const coveredCLOs = CLO_ACHIEVEMENT.filter(c => c.achieved >= (c.target > 0 ? c.target : cloThreshold)).length;
+        const coveredPLOs = PLO_ACHIEVEMENT.filter(p => p.achieved >= (p.target > 0 ? p.target : ploThreshold)).length;
+        const coveredGAs  = GA_REAL.filter(g => g.achieved >= (g.target > 0 ? g.target : gaThreshold)).length;
         const COVERAGE_DATA = [
             { name: 'CLO Coverage', covered: Math.round((coveredCLOs / Math.max(1, CLO_ACHIEVEMENT.length)) * 100), uncovered: Math.round(((CLO_ACHIEVEMENT.length - coveredCLOs) / Math.max(1, CLO_ACHIEVEMENT.length)) * 100) },
             { name: 'PLO Coverage', covered: Math.round((coveredPLOs / Math.max(1, PLO_ACHIEVEMENT.length)) * 100), uncovered: Math.round(((PLO_ACHIEVEMENT.length - coveredPLOs) / Math.max(1, PLO_ACHIEVEMENT.length)) * 100) },
-            { name: 'GA Coverage', covered: Math.round((coveredGAs / Math.max(1, GA_REAL.length)) * 100), uncovered: Math.round(((GA_REAL.length - coveredGAs) / Math.max(1, GA_REAL.length)) * 100) },
+            { name: 'GA Coverage',  covered: Math.round((coveredGAs  / Math.max(1, GA_REAL.length))          * 100), uncovered: Math.round(((GA_REAL.length - coveredGAs)          / Math.max(1, GA_REAL.length))          * 100) },
         ].filter(c => c.covered + c.uncovered > 0);
 
         // Target vs Achieved summary

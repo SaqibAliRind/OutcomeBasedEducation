@@ -96,6 +96,22 @@ body {
   gap: 1.5rem !important;
 }
 
+/* Base Responsive Rules */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    flex-direction: column !important;
+  }
+  .main-content {
+    padding: 1rem !important;
+  }
+}
+
 /* Fade-in animation for pages */
 .fade-in {
   animation: masterFadeIn 0.35s ease;
@@ -121,6 +137,26 @@ body {
   align-items: center !important;
   justify-content: space-between !important;
   margin-bottom: 0.5rem !important;
+}
+
+@media (max-width: 768px) {
+  .top-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  
+  .header-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+  
+  .header-actions button {
+    flex: 1 !important;
+    white-space: nowrap !important;
+  }
 }
 
 .header-title h1 {
@@ -152,6 +188,7 @@ body {
   box-shadow: var(--uni-shadow) !important;
   color: var(--uni-text) !important;
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s !important;
+  min-width: 0 !important;
 }
 
 .stat-card {
@@ -532,6 +569,38 @@ button:active {
   gap: 1.2rem !important;
 }
 
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==================================
+   7b. TABLE RESPONSIVENESS
+===================================== */
+/* Global table rules to ensure they don't break flex layouts */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+@media (max-width: 900px) {
+  /* Make table itself scrollable on smaller screens without needing a wrapper div */
+  table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    border-radius: var(--uni-radius-sm) !important;
+    border-bottom: 1px solid var(--uni-border) !important;
+  }
+  
+  /* Ensure headers and cells don't shrink too much */
+  th, td {
+    padding: 0.8rem 1rem !important;
+  }
+}
+
 /* ==================================
    8. MODAL SYSTEM
 ===================================== */
@@ -559,6 +628,13 @@ button:active {
   overflow-y: auto !important;
   padding: 2rem !important;
   animation: modalSlideUp 0.25s ease !important;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 1.25rem !important;
+    border-radius: var(--uni-radius-md) !important;
+  }
 }
 
 @keyframes modalSlideUp {

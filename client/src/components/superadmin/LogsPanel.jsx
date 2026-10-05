@@ -47,7 +47,8 @@ const LogsPanel = () => {
         }
     };
 
-    const filtered = logs.filter(log => {
+    const safeLogs = Array.isArray(logs) ? logs : (logs?.data || []);
+    const filtered = safeLogs.filter(log => {
         const q = search.toLowerCase();
         if (!q) return true;
         if (activeTab === 'activity')
@@ -257,9 +258,8 @@ const LogsPanel = () => {
                 )}
             </div>
 
-            {/* Footer summary */}
             <div style={{ marginTop: '0.8rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.35)', textAlign: 'right' }}>
-                Showing {filtered.length} of {logs.length} {activeTab} logs (max 200)
+                Showing {filtered.length} of {safeLogs.length} {activeTab} logs (max 200)
             </div>
         </div>
     );

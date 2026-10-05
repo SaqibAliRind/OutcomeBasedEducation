@@ -71,7 +71,10 @@ const logsSlice = createSlice({
     // SuperAdmin Actions
     builder
         .addCase(fetchLogs.pending, (state) => { state.loading = true; state.error = null; })
-        .addCase(fetchLogs.fulfilled, (state, action) => { state.loading = false; state.logs = action.payload; })
+        .addCase(fetchLogs.fulfilled, (state, action) => { 
+            state.loading = false; 
+            state.logs = action.payload?.data || action.payload || []; 
+        })
         .addCase(fetchLogs.rejected, (state, action) => { state.loading = false; state.error = action.payload; })
         .addCase(clearOldLogs.pending, (state) => { state.loading = true; state.error = null; })
         .addCase(clearOldLogs.fulfilled, (state, action) => { state.loading = false; state.successMessage = action.payload; })

@@ -137,10 +137,15 @@ import fs from 'fs';
 import path from 'path';
 import mongoose from 'mongoose';
 
-// Ensure backups dir exists
+// Ensure backups dir exists (skip on Vercel — read-only filesystem)
 const BACKUP_DIR = path.resolve('backups');
-if (!fs.existsSync(BACKUP_DIR)) {
-    fs.mkdirSync(BACKUP_DIR, { recursive: true });
+try {
+    if (!fs.existsSync(BACKUP_DIR)) {
+        fs.mkdirSync(BACKUP_DIR, { recursive: true });
+    }
+} catch (e) {
+    // Vercel serverless has read-only filesystem — backups require local/persistent storage
+    console.warn('[Settings] Could not create backups directory:', e.message);
 }
 
 // @desc    Trigger manual database backup to JSON
